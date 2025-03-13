@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Genveje - Optimer din hverdag</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #007aff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #005bb5;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Optimer din iPhone-brug</h1>
+        <p>Din nuværende teknologi kan hjælpe dig i hverdagen – du skal bare have den rigtige opsætning.</p>
+        <div class="buttons">
+            <button class="btn" onclick="showInspiration()">Bliv inspireret</button>
+            <button class="btn" onclick="showSurvey()">Find din løsning</button>
+        </div>
+        <div id="inspiration" class="hidden">
+            <h2>Inspiration & Guider</h2>
+            <p>Her finder du en samling af guides til de bedste iPhone-genveje.</p>
+            <ul>
+                <li>🔹 Automatiske påmindelser</li>
+                <li>🔹 Hurtig adgang til noter</li>
+                <li>🔹 Effektivisering af arbejdsprocesser</li>
+            </ul>
+        </div>
+        <div id="survey" class="hidden">
+            <h2>Find den rette løsning</h2>
+            <p>Hvad vil du gerne optimere?</p>
+            <button class="btn" onclick="showResult('produktivitet')">Produktivitet</button>
+            <button class="btn" onclick="showResult('tilgængelighed')">Tilgængelighed</button>
+        </div>
+        <div id="result" class="hidden">
+            <h2>Din anbefaling</h2>
+            <p id="recommendation"></p>
+        </div>
+    </div>
+    
+    <script>
+        function showInspiration() {
+            document.getElementById('inspiration').classList.remove('hidden');
+            document.getElementById('survey').classList.add('hidden');
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function showSurvey() {
+            document.getElementById('survey').classList.remove('hidden');
+            document.getElementById('inspiration').classList.add('hidden');
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function showResult(type) {
+            let text = '';
+            if (type === 'produktivitet') {
+                text = 'Vi anbefaler genvejen "Opret hurtige noter" til at gemme dine tanker med et enkelt tryk!';
+            } else if (type === 'tilgængelighed') {
+                text = 'Prøv "Stemmeaktiverede genveje", så du kan styre din iPhone uden at bruge hænderne!';
+            }
+            document.getElementById('recommendation').innerText = text;
+            document.getElementById('result').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
